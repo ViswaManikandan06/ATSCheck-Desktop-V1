@@ -12,9 +12,10 @@ privacy policy. Ollama can be used as a local model provider.
 
 ## Try the app
 
-Installers will be published on the project's GitHub Releases page after the
-first release. Until then, see [how to build and install from source](docs/SETUP.md).
-Unsigned builds may trigger operating-system warnings.
+Download the latest installers from the
+[GitHub Releases page](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases).
+See [how to install](docs/SETUP.md). Unsigned builds may trigger
+operating-system warnings.
 
 For a product overview and the documentation links, open [docs/index.html](docs/index.html)
 in a browser.
@@ -44,9 +45,9 @@ for the current environment-variable switches.
 
 ## Project status
 
-The project is under active development. Desktop bundles are configured for
-macOS, Windows, and Linux, but installers are not yet published. Builds from
-source require the native prerequisites documented in the development guide.
+The project is under active development. Version 0.1.2 is available for macOS,
+Windows, and Linux. Builds from source require the native prerequisites
+documented in the development guide.
 
 ## License
 

@@ -1,7 +1,8 @@
 # Build and run from source
 
 This guide is for contributors and users who prefer to build ATSCheck Desktop
-themselves. End users can use the native installers when available instead.
+themselves. End users can download the native installers from the
+[GitHub Releases page](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases).
 
 ## Prerequisites
 

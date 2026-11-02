@@ -2,15 +2,15 @@
 
 ## Download and install
 
-There is not a downloadable installer yet. Once the first release is published,
-download the installer for your operating system from the project's GitHub
-Releases page.
+Download ATSCheck Desktop [v0.1.2 from GitHub Releases](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.2).
+Choose the file for your operating system and processor:
 
-Expected release formats:
-
-- macOS: `.dmg` and `.app` bundles
-- Windows: `.msi` and NSIS `.exe` installers
-- Linux: `.deb`, `.rpm`, and AppImage bundles where supported by the build host
+- **macOS Apple Silicon:** `aarch64.dmg`
+- **macOS Intel:** `x64.dmg`
+- **Windows:** `x64-setup.exe` or `x64_en-US.msi`
+- **Debian/Ubuntu Linux:** `amd64.deb`
+- **Fedora/RHEL Linux:** `x86_64.rpm`
+- **Other compatible Linux distributions:** `amd64.AppImage`
 
 To install a published release:
 
@@ -20,11 +20,11 @@ To install a published release:
 - **Linux:** Install the `.deb` or `.rpm` with your distribution's package
   installer, or make the AppImage executable and launch it.
 
-### Build and install it yourself
+### Build and install from source
 
-Until a release is available, you can build the desktop app from source. Follow
-the [build and run from source guide](DEVELOPMENT.md) to install the required
-tools and dependencies. Then, from the `frontend` directory, run:
+If you prefer to build the desktop app yourself, follow the
+[build and run from source guide](DEVELOPMENT.md) to install the required tools
+and dependencies. Then, from the `frontend` directory, run:
 
 ```sh
 npm run tauri:build
