@@ -2,7 +2,7 @@ import io
 import re
 import unicodedata
 
-import pymupdf
+import pdfplumber
 from docx import Document
 from docx.table import Table
 from docx.text.paragraph import Paragraph
@@ -113,26 +113,23 @@ def extract_pdf(
     Extract text and basic metadata from a PDF file.
     """
 
-    document = pymupdf.open(
-        stream=file_bytes,
-        filetype="pdf",
-    )
-
-    page_count = len(document)
-
     text_parts: list[str] = []
     image_count = 0
 
-    for page in document:
+    with pdfplumber.open(io.BytesIO(file_bytes)) as document:
+        page_count = len(document.pages)
 
-        page_text = page.get_text("text", sort=True)
+        for page in document.pages:
+            page_text = page.extract_text(layout=True)
+            if page_text:
+                page_lines = []
+                for raw_line in page_text.splitlines():
+                    line = raw_line.strip()
+                    if line:
+                        page_lines.append(re.sub(r"[ \t]{3,}", " | ", line))
+                text_parts.append("\n".join(page_lines))
 
-        if page_text:
-            text_parts.append(page_text)
-
-        image_count += len(
-            page.get_images(full=True)
-        )
+            image_count += len(page.images)
 
     text = _normalize_extracted_text("\n".join(text_parts))
 
