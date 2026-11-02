@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f1e8">
+    <meta name="description" content="ATSCheck Desktop is a local-first resume and job application workspace.">
+    <title>ATSCheck Desktop — Your career workspace</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #171717;
+        --paper: #f5f1e8;
+        --white: #fffdf8;
+        --lime: #b8ff5a;
+        --muted: #55534e;
+        --border: 3px solid var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--paper); color: var(--ink); }
+      a { color: inherit; }
+      .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+      header { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; border-bottom: var(--border); }
+      .brand { display: flex; align-items: center; gap: 12px; font-weight: 950; letter-spacing: -.04em; }
+      .brand-mark { display: grid; width: 40px; height: 40px; place-items: center; border: var(--border); background: var(--lime); box-shadow: 3px 3px 0 var(--ink); font-size: 19px; }
+      nav { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; font-weight: 800; }
+      nav a { text-decoration-thickness: 2px; text-underline-offset: 4px; }
+      .hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 52px; align-items: center; padding: 76px 0 72px; }
+      .eyebrow { font-size: 12px; font-weight: 950; letter-spacing: .15em; text-transform: uppercase; }
+      h1 { max-width: 700px; margin: 18px 0; font-size: clamp(44px, 7vw, 78px); line-height: .98; letter-spacing: -.075em; }
+      .hero p { max-width: 610px; color: var(--muted); font-size: 18px; font-weight: 600; line-height: 1.7; }
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+      .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; border: var(--border); padding: 12px 18px; background: var(--lime); box-shadow: 4px 4px 0 var(--ink); font-size: 14px; font-weight: 950; text-decoration: none; }
+      .button.secondary { background: var(--white); }
+      .desktop-card { border: var(--border); background: var(--white); box-shadow: 10px 10px 0 var(--ink); }
+      .window-bar { display: flex; align-items: center; gap: 7px; border-bottom: var(--border); padding: 12px 14px; font-size: 12px; font-weight: 900; }
+      .dot { width: 10px; height: 10px; border: 2px solid var(--ink); border-radius: 50%; background: var(--lime); }
+      .window-body { padding: 18px; }
+      .welcome { border: 2px solid var(--ink); background: #f0ede5; padding: 18px; }
+      .welcome strong { display: block; font-size: 22px; letter-spacing: -.04em; }
+      .welcome span { display: block; margin-top: 6px; color: var(--muted); font-size: 12px; font-weight: 700; }
+      .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+      .tile { min-height: 92px; border: 2px solid var(--ink); padding: 12px; background: var(--white); }
+      .tile:nth-child(2) { background: var(--lime); }
+      .tile strong { display: block; font-size: 14px; }
+      .tile span { display: block; margin-top: 6px; color: var(--muted); font-size: 11px; font-weight: 650; line-height: 1.45; }
+      section { padding: 56px 0; border-top: var(--border); }
+      h2 { margin: 0; font-size: clamp(30px, 5vw, 46px); letter-spacing: -.06em; }
+      .section-lead { max-width: 640px; color: var(--muted); font-weight: 650; line-height: 1.7; }
+      .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+      .feature { min-height: 170px; border: var(--border); background: var(--white); padding: 18px; box-shadow: 4px 4px 0 var(--ink); }
+      .feature .num { font-size: 12px; font-weight: 950; color: var(--muted); }
+      .feature h3 { margin: 16px 0 8px; font-size: 18px; letter-spacing: -.04em; }
+      .feature p { margin: 0; color: var(--muted); font-size: 13px; font-weight: 600; line-height: 1.6; }
+      .privacy { display: grid; grid-template-columns: .8fr 1.2fr; gap: 28px; align-items: start; }
+      .privacy-card { border: var(--border); background: var(--lime); padding: 22px; box-shadow: 5px 5px 0 var(--ink); font-weight: 850; line-height: 1.65; }
+      .docs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 25px; }
+      .doc-link { display: flex; min-height: 62px; align-items: center; justify-content: space-between; gap: 12px; border: 2px solid var(--ink); background: var(--white); padding: 14px; font-weight: 850; text-decoration: none; }
+      .doc-link:hover, .button:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
+      footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: var(--border); padding: 24px 0 34px; color: var(--muted); font-size: 12px; font-weight: 700; }
+      @media (max-width: 800px) {
+        .hero, .privacy { grid-template-columns: 1fr; gap: 30px; }
+        .hero { padding: 52px 0; }
+        .features { grid-template-columns: repeat(2, 1fr); }
+        .docs { grid-template-columns: repeat(2, 1fr); }
+        nav { gap: 10px; }
+      }
+      @media (max-width: 520px) {
+        .wrap { width: min(100% - 28px, 1120px); }
+        header { align-items: flex-start; flex-direction: column; }
+        nav { font-size: 12px; }
+        .features, .docs { grid-template-columns: 1fr; }
+        section { padding: 42px 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="wrap">
+      <a class="brand" href="../README.md" aria-label="ATSCheck Desktop home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span>ATSCHECK DESKTOP</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#docs">Docs</a>
+        <a href="../CONTRIBUTING.md">Contribute</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero wrap" style="border-top: 0">
+        <div>
+          <div class="eyebrow">Your career workspace · On your computer</div>
+          <h1>Make your next move with confidence.</h1>
+          <p>
+            Organize resumes and applications, build polished resume drafts,
+            and work with the AI provider you choose. ATSCheck runs its service
+            locally on your computer.
+          </p>
+          <div class="actions">
+            <a class="button" href="../docs/SETUP.md">Get started <span aria-hidden="true">&nbsp;↗</span></a>
+            <a class="button secondary" href="../README.md">Explore the project</a>
+          </div>
+        </div>
+        <div class="desktop-card" aria-label="Illustration of the ATSCheck desktop dashboard">
+          <div class="window-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:auto">ATSCheck Desktop</span></div>
+          <div class="window-body">
+            <div class="welcome">
+              <strong>Good work starts with a clear picture.</strong>
+              <span>Your resumes and application progress, together.</span>
+            </div>
+            <div class="tiles">
+              <div class="tile"><strong>Resume builder</strong><span>Review, edit, and export your next draft.</span></div>
+              <div class="tile"><strong>Job tracker</strong><span>Keep each application and next step in view.</span></div>
+              <div class="tile"><strong>Cover letters</strong><span>Start with a draft. Make it yours.</span></div>
+              <div class="tile"><strong>Bring your model</strong><span>Choose your provider and credentials.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="wrap">
+          <div class="eyebrow">A toolkit that works together</div>
+          <h2>One place for the whole search.</h2>
+          <p class="section-lead">Keep the practical work close at hand, from the first resume draft to tracking an application.</p>
+          <div class="features">
+            <article class="feature"><span class="num">01 / RESUME</span><h3>Build and refine</h3><p>Turn extracted resume content into an editable, reviewable draft.</p></article>
+            <article class="feature"><span class="num">02 / APPLY</span><h3>Write with context</h3><p>Create a cover-letter draft from your resume and a job description.</p></article>
+            <article class="feature"><span class="num">03 / ORGANIZE</span><h3>Track your progress</h3><p>Keep application details and stages in a focused workspace.</p></article>
+            <article class="feature"><span class="num">04 / OPTIONAL</span><h3>ATS analysis</h3><p>Enable resume analysis and tailoring when you're ready to use them.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="privacy">
+        <div class="wrap privacy">
+          <div>
+            <div class="eyebrow">Local-first by design</div>
+            <h2>Your machine. Your choices.</h2>
+          </div>
+          <div>
+            <div class="privacy-card">
+              Resume files and app data stay in your local ATSCheck folder.
+              Provider keys use your operating system's credential store.
+              Cloud AI providers receive only the content needed for the action
+              you request; use a local Ollama model if you prefer local
+              inference.
+            </div>
+            <p class="section-lead">You bring the provider account, keys, and model choices. ATSCheck doesn't include paid AI access.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="docs">
+        <div class="wrap">
+          <div class="eyebrow">Open source · MIT License</div>
+          <h2>Start here.</h2>
+          <p class="section-lead">Install the app, learn the workflows, build from source, or help make it better.</p>
+          <div class="docs">
+            <a class="doc-link" href="../docs/SETUP.md">Install & setup <span aria-hidden="true">↗</span></a>
+            <a class="doc-link" href="../docs/USER_GUIDE.md">User guide <span aria-hidden="true">↗</span></a>
+            <a class="doc-link" href="../docs/DEVELOPMENT.md">Build from source <span aria-hidden="true">↗</span></a>
+            <a class="doc-link" href="../CONTRIBUTING.md">Contributing <span aria-hidden="true">↗</span></a>
+            <a class="doc-link" href="../SECURITY.md">Security <span aria-hidden="true">↗</span></a>
+            <a class="doc-link" href="../LICENSE">MIT license <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="wrap">
+      <span>ATSCheck Desktop · Local-first career tools</span>
+      <span>Installers will be linked from GitHub Releases when published.</span>
+    </footer>
+  </body>
+</html>

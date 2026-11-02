@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap");
+
+@import "tailwindcss";
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #111111;
+  background: #f5f1e8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #f5f1e8;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f5f1e8;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: #b8ff5a;
+  color: #111111;
+}
+
+@page {
+  size: A4;
+  margin: 16mm;
+}
+
+.resume-builder-printable {
+  display: none;
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  .resume-builder-printable,
+  .resume-builder-printable * {
+    visibility: visible !important;
+  }
+
+  .resume-builder-printable {
+    position: absolute;
+    inset: 0;
+    display: block !important;
+    width: 100%;
+    background: white;
+  }
+
+  .resume-paper {
+    width: 100%;
+    min-height: 0;
+    color: #111;
+    box-shadow: none !important;
+  }
+
+  .resume-paper section {
+    break-inside: auto;
+  }
+
+  .resume-paper li,
+  .resume-paper h1,
+  .resume-paper h2 {
+    break-inside: avoid;
+  }
+}

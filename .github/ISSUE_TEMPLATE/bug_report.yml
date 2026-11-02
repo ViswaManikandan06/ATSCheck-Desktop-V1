@@ -1,0 +1,42 @@
+name: Bug report
+description: Report a reproducible problem in ATSCheck Desktop.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: "Never attach resumes, API keys, personal data, or local database files."
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      placeholder: "1.0.0 or commit hash"
+    validations:
+      required: true
+  - type: input
+    id: operating-system
+    attributes:
+      label: Operating system
+      placeholder: "macOS version, Windows version, or Linux distribution"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Use synthetic/sample data only.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
