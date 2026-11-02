@@ -1,8 +1,6 @@
 import hashlib
 from pathlib import Path
 
-import pymupdf
-
 from .extractor import extract_docx, extract_pdf
 from .models import ParsedResume, ResumeMetadata
 
