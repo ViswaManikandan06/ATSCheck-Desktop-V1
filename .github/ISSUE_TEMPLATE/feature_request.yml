@@ -1,22 +1,35 @@
 name: Feature request
-description: Suggest an improvement to ATSCheck Desktop.
-title: "[Feature]: "
+description: Propose a focused improvement to ATSCheck Desktop.
+title: "[Feature] "
 labels:
   - enhancement
 body:
   - type: textarea
     id: problem
     attributes:
-      label: What problem should this solve?
+      label: What user problem would this solve?
+      description: "Who encounters the problem, and what are they trying to accomplish?"
+      placeholder: "When I …, it is difficult to … because …"
     validations:
       required: true
   - type: textarea
     id: solution
     attributes:
-      label: What would you like to happen?
+      label: What outcome do you want?
+      description: "Describe the behavior or result, not only a preferred implementation."
     validations:
       required: true
   - type: textarea
     id: alternatives
     attributes:
-      label: Alternatives considered
+      label: Alternatives and constraints
+      description: "Mention workarounds, platform needs, accessibility, privacy, or compatibility concerns."
+    validations:
+      required: false
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Privacy and scope
+      options:
+        - label: "I have not included real resumes, credentials, API keys, or other personal data."
+          required: true

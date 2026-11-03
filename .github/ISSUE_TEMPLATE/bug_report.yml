@@ -1,42 +1,79 @@
 name: Bug report
-description: Report a reproducible problem in ATSCheck Desktop.
-title: "[Bug]: "
+description: Report a reproducible problem so maintainers can investigate it.
+title: "[Bug] "
 labels:
   - bug
 body:
   - type: markdown
     attributes:
-      value: "Never attach resumes, API keys, personal data, or local database files."
+      value: |
+        Thank you for taking the time to report a problem.
+        **Never attach real resumes, API keys, credentials, personal data, or local database files.**
+        Use synthetic data and redact logs before sharing.
   - type: input
     id: version
     attributes:
       label: App version
-      placeholder: "1.0.0 or commit hash"
+      description: "Find the version in the app or use the commit hash if you built from source."
+      placeholder: "0.1.2 or commit hash"
     validations:
       required: true
   - type: input
     id: operating-system
     attributes:
       label: Operating system
-      placeholder: "macOS version, Windows version, or Linux distribution"
+      description: "Include the OS version and Linux distribution/desktop environment when applicable."
+      placeholder: "macOS 15.x, Windows 11, Ubuntu 24.04"
+    validations:
+      required: true
+  - type: input
+    id: installation
+    attributes:
+      label: Installation method
+      description: "Tell us whether you used a release installer, AppImage/package, or built from source."
+      placeholder: "DMG, Windows MSI, Debian package, AppImage, source build"
+    validations:
+      required: false
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: "Describe the issue and the workflow you were using. Use synthetic data only."
+      placeholder: "I expected …, but instead …"
     validations:
       required: true
   - type: textarea
     id: reproduce
     attributes:
       label: Steps to reproduce
-      description: Use synthetic/sample data only.
+      description: "List the smallest set of steps that reproduces the problem."
+      placeholder: |
+        1. Open …
+        2. Choose …
+        3. Observe …
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
       label: Expected behavior
+      description: "What did you expect the app to do?"
     validations:
       required: true
   - type: textarea
     id: actual
     attributes:
-      label: Actual behavior
+      label: What actually happened?
+      description: "Describe the observed behavior and any visible error message."
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs or screenshots (redacted)
+      description: "Optional. Remove credentials, resume text, personal data, and private file paths first."
+      render: text
+    validations:
+      required: false
     validations:
       required: true

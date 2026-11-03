@@ -1,25 +1,51 @@
-# ATSCheck Desktop frontend
+# Frontend and desktop shell
 
-This directory contains the React/Vite user interface and the Tauri desktop
-wrapper. Start with the project [README](../README.md), then see:
+This folder contains the React/Vite user interface and the Tauri v2 desktop
+wrapper.
 
-- [End-user setup](../docs/SETUP.md)
-- [Development and desktop builds](../docs/DEVELOPMENT.md)
-- [User guide](../docs/USER_GUIDE.md)
+## Start here
 
-For browser development, run the API from `backend/` and use:
+- End users: [Install the latest release](../docs/SETUP.md).
+- Contributors: [Build and run from source](../docs/DEVELOPMENT.md).
+- User workflows: [ATSCheck Desktop user guide](../docs/USER_GUIDE.md).
+- Feature configuration: [Feature flags](../docs/feature-flags.md).
+
+## Development
+
+Install dependencies with `npm ci` in this directory. The web UI and Tauri
+development shell both require the backend API to be running separately; see
+the full commands in [Development](../docs/DEVELOPMENT.md).
+
+Run only the browser frontend:
 
 ```sh
-npm ci
 npm run dev
 ```
 
-For a Tauri development window, start the API first and run:
+Run the Tauri development app after starting the API:
 
 ```sh
 npm run tauri:dev
 ```
 
-To package the desktop app with its Python API sidecar, install the backend
-build requirements and run `npm run tauri:build`. Native installers must be
-built on their target operating system and architecture.
+Run frontend validation:
+
+```sh
+npm run lint
+npm run build
+```
+
+## Package the desktop app
+
+The production Tauri app bundles and starts its own Python API sidecar. From
+this directory, after installing the backend build dependencies and native
+Tauri prerequisites:
+
+```sh
+npm run tauri:build
+```
+
+Installers are written under `src-tauri/target/release/bundle/`. Build on the
+target operating system and architecture because the sidecar is platform
+specific. For dependencies, troubleshooting, and smoke-test guidance, see the
+[development guide](../docs/DEVELOPMENT.md).

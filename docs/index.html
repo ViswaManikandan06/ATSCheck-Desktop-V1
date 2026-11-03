@@ -59,10 +59,16 @@
       .docs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 25px; }
       .doc-link { display: flex; min-height: 62px; align-items: center; justify-content: space-between; gap: 12px; border: 2px solid var(--ink); background: var(--white); padding: 14px; font-weight: 850; text-decoration: none; }
       .doc-link:hover, .button:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
+      a:focus-visible { outline: 4px solid #2872d6; outline-offset: 4px; }
+      .release { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; border: var(--border); background: var(--lime); padding: 22px; box-shadow: 5px 5px 0 var(--ink); }
+      .release p { max-width: 700px; margin: 8px 0 0; color: var(--muted); font-weight: 650; line-height: 1.65; }
+      .release strong { font-size: 19px; letter-spacing: -.03em; }
+      .notice { margin-top: 16px; border-left: 5px solid var(--ink); padding: 4px 0 4px 14px; color: var(--muted); font-size: 13px; font-weight: 650; line-height: 1.6; }
       footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: var(--border); padding: 24px 0 34px; color: var(--muted); font-size: 12px; font-weight: 700; }
       @media (max-width: 800px) {
         .hero, .privacy { grid-template-columns: 1fr; gap: 30px; }
         .hero { padding: 52px 0; }
+        .release { grid-template-columns: 1fr; }
         .features { grid-template-columns: repeat(2, 1fr); }
         .docs { grid-template-columns: repeat(2, 1fr); }
         nav { gap: 10px; }
@@ -74,6 +80,9 @@
         .features, .docs { grid-template-columns: 1fr; }
         section { padding: 42px 0; }
       }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      }
     </style>
   </head>
   <body>
@@ -83,6 +92,7 @@
         <span>ATSCHECK DESKTOP</span>
       </a>
       <nav aria-label="Main navigation">
+        <a href="https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/latest">Download</a>
         <a href="#features">Features</a>
         <a href="#privacy">Privacy</a>
         <a href="#docs">Docs</a>
@@ -101,7 +111,8 @@
             locally on your computer.
           </p>
           <div class="actions">
-            <a class="button" href="../docs/SETUP.md">Get started <span aria-hidden="true">&nbsp;↗</span></a>
+            <a class="button" href="https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.2">Download v0.1.2 <span aria-hidden="true">&nbsp;↗</span></a>
+            <a class="button secondary" href="SETUP.md">Install guide</a>
             <a class="button secondary" href="../README.md">Explore the project</a>
           </div>
         </div>
@@ -119,6 +130,19 @@
               <div class="tile"><strong>Bring your model</strong><span>Choose your provider and credentials.</span></div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section aria-label="Current release">
+        <div class="wrap">
+          <div class="release">
+            <div>
+              <strong>Ready to make it yours? ATSCheck Desktop v0.1.2 is available.</strong>
+              <p>Choose an installer for macOS (Apple Silicon or Intel), Windows, or Linux, then follow the platform-specific installation guide.</p>
+            </div>
+            <a class="button secondary" href="https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.2">Get the app <span aria-hidden="true">&nbsp;↗</span></a>
+          </div>
+          <p class="notice">The current installers are unsigned and not notarized. macOS and Windows may show security warnings. Review the release notes and installation guide before installing.</p>
         </div>
       </section>
 
@@ -146,11 +170,11 @@
             <div class="privacy-card">
               Resume files and app data stay in your local ATSCheck folder.
               Provider keys use your operating system's credential store.
-              Cloud AI providers receive only the content needed for the action
-              you request; use a local Ollama model if you prefer local
-              inference.
+              When you request a cloud AI operation, relevant content is sent
+              to the provider you selected. Ollama can provide local inference
+              when installed and configured separately.
             </div>
-            <p class="section-lead">You bring the provider account, keys, and model choices. ATSCheck doesn't include paid AI access.</p>
+            <p class="section-lead">You bring the provider account, keys, and model choices. ATSCheck does not include paid AI access. See the security guide for data locations and limitations.</p>
           </div>
         </div>
       </section>
@@ -163,9 +187,13 @@
           <div class="docs">
             <a class="doc-link" href="../docs/SETUP.md">Install & setup <span aria-hidden="true">↗</span></a>
             <a class="doc-link" href="../docs/USER_GUIDE.md">User guide <span aria-hidden="true">↗</span></a>
+            <a class="doc-link" href="../docs/README.md">Documentation map <span aria-hidden="true">↗</span></a>
             <a class="doc-link" href="../docs/DEVELOPMENT.md">Build from source <span aria-hidden="true">↗</span></a>
+            <a class="doc-link" href="../docs/feature-flags.md">Feature switches <span aria-hidden="true">↗</span></a>
+            <a class="doc-link" href="../docs/RELEASES.md">Releases <span aria-hidden="true">↗</span></a>
             <a class="doc-link" href="../CONTRIBUTING.md">Contributing <span aria-hidden="true">↗</span></a>
             <a class="doc-link" href="../SECURITY.md">Security <span aria-hidden="true">↗</span></a>
+            <a class="doc-link" href="../CODE_OF_CONDUCT.md">Code of Conduct <span aria-hidden="true">↗</span></a>
             <a class="doc-link" href="../LICENSE">MIT license <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -173,8 +201,8 @@
     </main>
 
     <footer class="wrap">
-      <span>ATSCheck Desktop · Local-first career tools</span>
-      <span>Installers will be linked from GitHub Releases when published.</span>
+      <span>ATSCheck Desktop · Local-first career tools · MIT License</span>
+      <span><a href="https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.2">Download v0.1.2</a> · Unsigned builds may show security warnings.</span>
     </footer>
   </body>
 </html>
