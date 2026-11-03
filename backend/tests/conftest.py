@@ -50,6 +50,17 @@ def db_session():
         engine.dispose()
 
 
+@pytest.fixture(autouse=True)
+def isolate_app_data(
+    monkeypatch,
+    tmp_path,
+):
+    monkeypatch.setattr(
+        "app.storage.local_storage.RESUME_STORAGE_DIR",
+        tmp_path / "resumes",
+    )
+
+
 @pytest.fixture
 def client(
     db_session,

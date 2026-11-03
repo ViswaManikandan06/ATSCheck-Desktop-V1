@@ -14,7 +14,7 @@ whole job search moving from one desktop app.
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-171717?style=flat-square)
 ![Desktop: macOS, Windows, Linux](https://img.shields.io/badge/desktop-macOS%20%7C%20Windows%20%7C%20Linux-b8ff5a?style=flat-square&labelColor=171717)
-![Release: 0.1.2](https://img.shields.io/badge/release-v0.1.2-171717?style=flat-square)
+![Release: 0.1.3](https://img.shields.io/badge/release-v0.1.3-171717?style=flat-square)
 
 </div>
 
@@ -33,7 +33,7 @@ ATSCheck-hosted account or service to sign into.
 
 ## Get the app
 
-**Current release: [v0.1.2](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.2).**
+**Current release: [v0.1.3](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.3).**
 Choose the installer for your operating system and processor:
 
 | Platform | Download |
@@ -65,7 +65,7 @@ and formatting against your source material before using or sending it.
 
 ## Quick start
 
-1. Download and install the matching [v0.1.2 release](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.2).
+1. Download and install the matching [v0.1.3 release](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.3).
 2. Launch ATSCheck Desktop. Its local API starts automatically.
 3. Import a PDF or DOCX resume, then review the extracted text in the resume
    builder.
@@ -96,7 +96,7 @@ For an organized directory of all guides, open the
 
 ## Project status
 
-ATSCheck Desktop is open source and under active development. Version 0.1.2
+ATSCheck Desktop is open source and under active development. Version 0.1.3
 has installers for macOS (Intel and Apple Silicon), Windows, and Linux.
 Scanned/image-only PDF OCR is not bundled. See the [release notes](docs/RELEASES.md)
 and [known limitations](docs/SETUP.md#known-limitations) before installing.

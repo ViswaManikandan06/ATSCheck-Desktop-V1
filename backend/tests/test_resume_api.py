@@ -1,13 +1,34 @@
 import io
 
 import pymupdf
+import pytest
 from docx import Document
 from fastapi.testclient import TestClient
 
+from app.core.database import get_db
 from app.main import app
 
 
 client = TestClient(app)
+
+
+@pytest.fixture(autouse=True)
+def isolate_resume_api_database(db_session):
+    def override_get_db():
+        yield db_session
+
+    app.dependency_overrides[get_db] = override_get_db
+
+    yield
+
+    app.dependency_overrides.pop(get_db, None)
+
+
+def test_resume_list_is_empty_for_a_fresh_database():
+    response = client.get("/api/v1/resumes")
+
+    assert response.status_code == 200
+    assert response.json() == {"resumes": []}
 
 
 def create_pdf(text: str) -> bytes:

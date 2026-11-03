@@ -8,7 +8,7 @@ security problem.
 ## Supported versions
 
 Security fixes are applied to the latest published release. The current
-release is [v0.1.2](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.2).
+release is [v0.1.3](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.3).
 Update to the latest release when possible. Older releases may not receive
 security fixes.
 
@@ -62,7 +62,7 @@ handling terms before sending sensitive information.
 - Do not expose the local API to a network. It is intended for loopback use.
 - Download installers from the official [GitHub Releases page](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases).
 
-The v0.1.2 installers are unsigned and not notarized. Operating systems may
+The v0.1.3 installers are unsigned and not notarized. Operating systems may
 show publisher or security warnings. Only proceed if you have verified that
 the download is from the official release page and accept the risks of an
 unsigned application.

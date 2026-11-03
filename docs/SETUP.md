@@ -1,6 +1,6 @@
 # Install ATSCheck Desktop
 
-> **Current release:** [ATSCheck Desktop v0.1.2](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.2)
+> **Current release:** [ATSCheck Desktop v0.1.3](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.3)
 >
 > **Platforms:** macOS (Intel and Apple Silicon), Windows 64-bit, Linux 64-bit
 >
@@ -13,18 +13,18 @@ the packaged desktop app.
 
 ## 1. Choose and download an installer
 
-Open the [v0.1.2 release page](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.2)
+Open the [v0.1.3 release page](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.3)
 and expand **Assets**. Select the file that matches your operating system and
 processor:
 
 | Your computer | Download |
 | --- | --- |
-| Mac with Apple Silicon (M1/M2/M3/M4) | `ATSCheck.Desktop_0.1.2_aarch64.dmg` |
-| Mac with Intel processor | `ATSCheck.Desktop_0.1.2_x64.dmg` |
-| Windows 64-bit | `ATSCheck.Desktop_0.1.2_x64-setup.exe` or `ATSCheck.Desktop_0.1.2_x64_en-US.msi` |
-| Debian or Ubuntu Linux | `ATSCheck.Desktop_0.1.2_amd64.deb` |
-| Fedora or RHEL Linux | `ATSCheck.Desktop-0.1.2-1.x86_64.rpm` |
-| Other compatible 64-bit Linux | `ATSCheck.Desktop_0.1.2_amd64.AppImage` |
+| Mac with Apple Silicon (M1/M2/M3/M4) | `ATSCheck.Desktop_0.1.3_aarch64.dmg` |
+| Mac with Intel processor | `ATSCheck.Desktop_0.1.3_x64.dmg` |
+| Windows 64-bit | `ATSCheck.Desktop_0.1.3_x64-setup.exe` or `ATSCheck.Desktop_0.1.3_x64_en-US.msi` |
+| Debian or Ubuntu Linux | `ATSCheck.Desktop_0.1.3_amd64.deb` |
+| Fedora or RHEL Linux | `ATSCheck.Desktop-0.1.3-1.x86_64.rpm` |
+| Other compatible 64-bit Linux | `ATSCheck.Desktop_0.1.3_amd64.AppImage` |
 
 The `.app.tar.gz` files are macOS application bundles intended for users who
 prefer a bundle archive; most users should choose the matching `.dmg`.
@@ -57,7 +57,7 @@ deciding whether to continue.
 Open a terminal in the folder containing the downloaded `.deb`, then install:
 
 ```sh
-sudo apt install ./ATSCheck.Desktop_0.1.2_amd64.deb
+sudo apt install ./ATSCheck.Desktop_0.1.3_amd64.deb
 ```
 
 Launch **ATSCheck Desktop** from your applications menu.
@@ -67,7 +67,7 @@ Launch **ATSCheck Desktop** from your applications menu.
 Open a terminal in the download folder and install the `.rpm`:
 
 ```sh
-sudo dnf install ./ATSCheck.Desktop-0.1.2-1.x86_64.rpm
+sudo dnf install ./ATSCheck.Desktop-0.1.3-1.x86_64.rpm
 ```
 
 Launch **ATSCheck Desktop** from your applications menu.
@@ -78,8 +78,8 @@ In the terminal, change to the download folder and make the AppImage
 executable:
 
 ```sh
-chmod +x ATSCheck.Desktop_0.1.2_amd64.AppImage
-./ATSCheck.Desktop_0.1.2_amd64.AppImage
+chmod +x ATSCheck.Desktop_0.1.3_amd64.AppImage
+./ATSCheck.Desktop_0.1.3_amd64.AppImage
 ```
 
 If it does not start, check your distribution's support for AppImage and the

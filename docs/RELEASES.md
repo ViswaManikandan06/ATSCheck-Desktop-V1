@@ -3,22 +3,26 @@
 This page tells users where to download the current app and maintainers how
 to prepare and publish future builds.
 
-## Current release: v0.1.2
+## Current release: v0.1.3
 
-[Download ATSCheck Desktop v0.1.2](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.2).
+ATSCheck Desktop v0.1.3 includes a regression test for a fresh resume library
+and isolates resume API tests from the real local application database and
+resume folder. There are no user-facing feature changes from v0.1.2.
+
+[Download ATSCheck Desktop v0.1.3](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.3).
 The public release includes nine installer assets:
 
 | Platform | Release asset |
 | --- | --- |
-| Linux · RPM | `ATSCheck.Desktop-0.1.2-1.x86_64.rpm` |
-| Linux · AppImage | `ATSCheck.Desktop_0.1.2_amd64.AppImage` |
-| Linux · Debian package | `ATSCheck.Desktop_0.1.2_amd64.deb` |
-| macOS · Apple Silicon | `ATSCheck.Desktop_0.1.2_aarch64.dmg` |
-| macOS · Apple Silicon bundle archive | `ATSCheck.Desktop_0.1.2_aarch64.app.tar.gz` |
-| macOS · Intel | `ATSCheck.Desktop_0.1.2_x64.dmg` |
-| macOS · Intel bundle archive | `ATSCheck.Desktop_0.1.2_x64.app.tar.gz` |
-| Windows · installer | `ATSCheck.Desktop_0.1.2_x64-setup.exe` |
-| Windows · MSI | `ATSCheck.Desktop_0.1.2_x64_en-US.msi` |
+| Linux · RPM | `ATSCheck.Desktop-0.1.3-1.x86_64.rpm` |
+| Linux · AppImage | `ATSCheck.Desktop_0.1.3_amd64.AppImage` |
+| Linux · Debian package | `ATSCheck.Desktop_0.1.3_amd64.deb` |
+| macOS · Apple Silicon | `ATSCheck.Desktop_0.1.3_aarch64.dmg` |
+| macOS · Apple Silicon bundle archive | `ATSCheck.Desktop_0.1.3_aarch64.app.tar.gz` |
+| macOS · Intel | `ATSCheck.Desktop_0.1.3_x64.dmg` |
+| macOS · Intel bundle archive | `ATSCheck.Desktop_0.1.3_x64.app.tar.gz` |
+| Windows · installer | `ATSCheck.Desktop_0.1.3_x64-setup.exe` |
+| Windows · MSI | `ATSCheck.Desktop_0.1.3_x64_en-US.msi` |
 
 Install instructions are in [SETUP.md](SETUP.md). These builds are unsigned and
 not notarized; macOS and Windows may show security warnings. Scanned/image-only

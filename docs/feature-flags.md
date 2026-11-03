@@ -76,7 +76,7 @@ Launch the installed executable with the variable set for that process. For an
 AppImage in the current directory:
 
 ```sh
-ATS_SCAN_ENABLED=true ./ATSCheck.Desktop_0.1.2_amd64.AppImage
+ATS_SCAN_ENABLED=true ./ATSCheck.Desktop_0.1.3_amd64.AppImage
 ```
 
 For a package-installed app, run the app executable from a terminal with the
