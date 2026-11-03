@@ -2,10 +2,11 @@
 
 # ATSCheck Desktop
 
-### A calmer, more private workspace for your next career move.
+### Open-source, local-first ATS resume checker and job-search desktop app.
 
-Organize resumes and applications, shape polished resume drafts, and keep the
-whole job search moving from one desktop app.
+Build and parse resumes, create cover-letter drafts, and track job
+applications in one Tauri desktop workspace for macOS, Windows, and Linux.
+ATS analysis is optional and disabled by default.
 
 [Download ATSCheck Desktop](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/latest) ·
 [Install guide](docs/SETUP.md) ·
