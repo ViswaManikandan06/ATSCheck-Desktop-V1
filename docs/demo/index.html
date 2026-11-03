@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A visual tour of ATSCheck Desktop: resume management, resume building, cover letters, job tracking, and privacy settings."
+    >
+    <title>ATSCheck Desktop — Product tour</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #171717;
+        --paper: #f5f2e9;
+        --white: #fffefa;
+        --lime: #b8ff5a;
+        --muted: #656b79;
+        --line: #242424;
+        --blue: #dceaff;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .site-header,
+      main,
+      .site-footer {
+        width: min(1180px, calc(100% - 40px));
+        margin-inline: auto;
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding-block: 24px;
+        border-bottom: 2px solid var(--line);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 850;
+        letter-spacing: -0.04em;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 42px;
+        aspect-ratio: 1;
+        place-items: center;
+        border: 2px solid var(--ink);
+        background: var(--lime);
+        box-shadow: 4px 4px 0 var(--ink);
+        font-size: 22px;
+      }
+
+      .header-link,
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 10px 16px;
+        border: 2px solid var(--ink);
+        box-shadow: 4px 4px 0 var(--ink);
+        font-weight: 750;
+        text-decoration: none;
+      }
+
+      .header-link {
+        background: var(--white);
+      }
+
+      .hero {
+        padding: clamp(52px, 9vw, 110px) 0 42px;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 850px;
+        margin-bottom: 20px;
+        font-size: clamp(3rem, 8vw, 6.6rem);
+        letter-spacing: -0.075em;
+        line-height: 0.98;
+      }
+
+      .hero-copy {
+        max-width: 700px;
+        margin-bottom: 28px;
+        color: #4e5665;
+        font-size: clamp(1.1rem, 2vw, 1.35rem);
+        line-height: 1.6;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 36px;
+      }
+
+      .button-primary {
+        background: var(--lime);
+      }
+
+      .button-secondary {
+        background: var(--white);
+      }
+
+      .hero-shot,
+      .shot {
+        overflow: hidden;
+        border: 2px solid var(--ink);
+        background: var(--white);
+        box-shadow: 7px 7px 0 var(--ink);
+      }
+
+      .hero-shot img,
+      .shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      figure {
+        margin: 0;
+      }
+
+      figcaption {
+        padding: 12px 14px;
+        border-top: 2px solid var(--ink);
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+
+      .hero-shot figcaption {
+        background: var(--white);
+      }
+
+      .quick-facts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin: 34px 0 84px;
+      }
+
+      .fact {
+        min-height: 130px;
+        padding: 20px;
+        border: 2px solid var(--ink);
+        box-shadow: 5px 5px 0 var(--ink);
+        background: var(--white);
+      }
+
+      .fact:nth-child(2) {
+        background: var(--lime);
+      }
+
+      .fact:nth-child(3) {
+        background: var(--blue);
+      }
+
+      .fact strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+      }
+
+      .fact p {
+        margin-bottom: 0;
+        color: #4e5665;
+        line-height: 1.5;
+      }
+
+      .tour {
+        padding-bottom: 64px;
+      }
+
+      .tour-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 2px solid var(--line);
+      }
+
+      .tour-heading h2 {
+        margin-bottom: 0;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        letter-spacing: -0.06em;
+      }
+
+      .chapter-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0 0 34px;
+      }
+
+      .chapter-nav a {
+        padding: 8px 12px;
+        border: 1px solid #767b84;
+        border-radius: 999px;
+        color: #424957;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .chapter-nav a:hover,
+      .chapter-nav a:focus-visible {
+        border-color: var(--ink);
+        background: var(--lime);
+      }
+
+      .chapter {
+        display: grid;
+        grid-template-columns: minmax(230px, 0.72fr) minmax(0, 1.6fr);
+        gap: clamp(24px, 5vw, 64px);
+        align-items: start;
+        padding: 34px 0 44px;
+        border-top: 1px solid #a7a69f;
+        scroll-margin-top: 24px;
+      }
+
+      .chapter-number {
+        margin-bottom: 10px;
+        color: #6b7280;
+        font-size: 0.8rem;
+        font-weight: 850;
+        letter-spacing: 0.16em;
+      }
+
+      .chapter h3 {
+        margin-bottom: 12px;
+        font-size: clamp(1.65rem, 3vw, 2.45rem);
+        letter-spacing: -0.055em;
+        line-height: 1.05;
+      }
+
+      .chapter-copy {
+        color: #505765;
+        line-height: 1.7;
+      }
+
+      .chapter-copy p:last-child {
+        margin-bottom: 0;
+      }
+
+      .screens {
+        display: grid;
+        gap: 22px;
+      }
+
+      .screens-two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .callout {
+        margin-top: 18px;
+        padding: 14px 16px;
+        border: 2px solid var(--ink);
+        background: #fff2cf;
+        color: #373737;
+        font-size: 0.94rem;
+        line-height: 1.6;
+      }
+
+      .callout strong {
+        color: var(--ink);
+      }
+
+      .closing {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin: 10px 0 70px;
+        padding: clamp(24px, 5vw, 48px);
+        border: 2px solid var(--ink);
+        box-shadow: 7px 7px 0 var(--ink);
+        background: var(--lime);
+      }
+
+      .closing h2 {
+        max-width: 600px;
+        margin-bottom: 8px;
+        font-size: clamp(1.7rem, 4vw, 2.8rem);
+        letter-spacing: -0.06em;
+      }
+
+      .closing p {
+        margin-bottom: 0;
+        color: #3d4931;
+        line-height: 1.5;
+      }
+
+      .site-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 22px 0 34px;
+        border-top: 2px solid var(--line);
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .site-footer nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      @media (max-width: 760px) {
+        .site-header,
+        main,
+        .site-footer {
+          width: min(100% - 28px, 1180px);
+        }
+
+        .site-header {
+          padding-block: 16px;
+        }
+
+        .header-link {
+          min-height: 40px;
+          padding: 8px 10px;
+          font-size: 0.88rem;
+        }
+
+        .quick-facts {
+          grid-template-columns: 1fr;
+          margin-bottom: 58px;
+        }
+
+        .fact {
+          min-height: auto;
+        }
+
+        .tour-heading,
+        .closing {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .chapter {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .screens-two {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        :root {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../../README.md" aria-label="ATSCheck Desktop home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span>ATSCheck Desktop</span>
+      </a>
+      <a class="header-link" href="../../README.md">Back to project</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">A visual product tour · Desktop release 0.1.3</p>
+        <h1 id="page-title">One workspace for your next move.</h1>
+        <p class="hero-copy">
+          Take a quick look at how ATSCheck Desktop brings resume files,
+          resume-building tools, cover-letter drafts, and application tracking
+          into one local-first career workspace.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#tour">Explore the workflows</a>
+          <a class="button button-secondary" href="../../docs/SETUP.md">Install the app</a>
+        </div>
+        <figure class="hero-shot">
+          <img
+            src="screenshots/01-dashboard.png"
+            alt="ATSCheck Desktop dashboard showing resume upload, local mode, and the ATS-analysis-disabled notice."
+            fetchpriority="high"
+          >
+          <figcaption>
+            The dashboard is the starting point for the resume library and
+            career tools. ATS analysis is disabled in this demo.
+          </figcaption>
+        </figure>
+
+        <div class="quick-facts" aria-label="Product highlights">
+          <article class="fact">
+            <strong>Local-first workspace</strong>
+            <p>Resume files and application data are stored on your device.</p>
+          </article>
+          <article class="fact">
+            <strong>Choose your workflow</strong>
+            <p>Use the resume builder, cover letters, and job tracker independently.</p>
+          </article>
+          <article class="fact">
+            <strong>AI is optional</strong>
+            <p>Bring a supported provider or run a compatible local Ollama model.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="tour" id="tour" aria-labelledby="tour-title">
+        <div class="tour-heading">
+          <div>
+            <p class="eyebrow">Inside the app</p>
+            <h2 id="tour-title">A tour of the workflows</h2>
+          </div>
+          <span class="eyebrow">Screenshots use synthetic sample data</span>
+        </div>
+        <nav class="chapter-nav" aria-label="Tour chapters">
+          <a href="#library">Resume library</a>
+          <a href="#builder">Resume builder</a>
+          <a href="#letters">Cover letters</a>
+          <a href="#tracker">Job tracker</a>
+          <a href="#privacy">Privacy</a>
+        </nav>
+
+        <article class="chapter" id="library">
+          <div class="chapter-copy">
+            <p class="chapter-number">01 / IMPORT & ORGANIZE</p>
+            <h3>A home for your resumes</h3>
+            <p>
+              Import a PDF or DOCX resume, keep the original in your local
+              library, and open it when you want to review or build from it.
+              Extracted content is a first draft to verify against the source.
+            </p>
+            <p>
+              Selectable-text PDFs generally extract better than scanned
+              images; OCR is not bundled with the app.
+            </p>
+          </div>
+          <div class="screens screens-two">
+            <figure class="shot">
+              <img
+                src="screenshots/01-resume-library.png"
+                alt="Resume library with one fictional DOCX resume and an option to upload another."
+                loading="lazy"
+              >
+              <figcaption>A sample resume in the local library.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="screenshots/02-import-resume.png"
+                alt="Upload Resume screen with a drag-and-drop area for a resume file."
+                loading="lazy"
+              >
+              <figcaption>Start an import from the upload screen.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="chapter" id="builder">
+          <div class="chapter-copy">
+            <p class="chapter-number">02 / EDIT & PREVIEW</p>
+            <h3>Shape a resume draft</h3>
+            <p>
+              Choose a resume, inspect and edit extracted sections, then move
+              to the page preview. The builder keeps the section editor in its
+              own workspace so long content can be reviewed without growing
+              the whole page.
+            </p>
+            <p>
+              Review names, dates, skills, and every claim before printing or
+              saving a PDF.
+            </p>
+          </div>
+          <div class="screens">
+            <figure class="shot">
+              <img
+                src="screenshots/02-resume-builder.png"
+                alt="Resume builder wizard at the review-content step, after choosing a fictional resume."
+                loading="lazy"
+              >
+              <figcaption>
+                Follow the wizard from choosing a resume through content review
+                and preview.
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="screenshots/02-resume-review-details.png"
+                alt="Resume builder review step with the extracted-draft count, a verification warning, and section editor."
+                loading="lazy"
+              >
+              <figcaption>
+                Review the extracted draft and compare it with the original
+                before using the preview.
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="screenshots/03-resume-preview.png"
+                alt="A clean resume page preview for fictional Product Designer Jordan Lee."
+                loading="lazy"
+              >
+              <figcaption>
+                The generated page preview uses synthetic sample resume content.
+              </figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="chapter" id="letters">
+          <div class="chapter-copy">
+            <p class="chapter-number">03 / ROLE-SPECIFIC DRAFTING</p>
+            <h3>Prepare a cover-letter request</h3>
+            <p>
+              Select a resume, add the target company and position, and provide
+              the job description as context for a role-specific draft.
+              Generated content requires a configured AI provider or local
+              model.
+            </p>
+            <aside class="callout">
+              <strong>Demo limitation:</strong> these images show the populated
+              request form only. No letter was generated because this demo did
+              not have an AI provider configured.
+            </aside>
+          </div>
+          <div class="screens screens-two">
+            <figure class="shot">
+              <img
+                src="screenshots/05-cover-letter.png"
+                alt="Cover letter generator with a fictional resume selected and the applicant name entered."
+                loading="lazy"
+              >
+              <figcaption>The cover-letter setup form.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="screenshots/05-cover-letter-details.png"
+                alt="Cover letter form populated with Jordan Lee, Brightside Health, and a Senior Product Designer role."
+                loading="lazy"
+              >
+              <figcaption>Fictional role details entered as generation context.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="chapter" id="tracker">
+          <div class="chapter-copy">
+            <p class="chapter-number">04 / KEEP THE SEARCH MOVING</p>
+            <h3>Track application progress</h3>
+            <p>
+              Record applications, update their status as they move forward,
+              and keep follow-up details close at hand. The tracker dashboard
+              also summarizes activity across the sample pipeline.
+            </p>
+            <p>
+              Applicant and application details are synthetic. Company names may
+              coincide with real organizations and do not imply affiliation.
+            </p>
+          </div>
+          <figure class="shot">
+            <img
+              src="screenshots/04-job-tracker.png"
+              alt="Job Tracker overview showing three sample applications, three active applications, one interview, and no offers."
+              loading="lazy"
+            >
+            <figcaption>
+              A small sample pipeline shown in the tracker overview.
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="chapter" id="privacy">
+          <div class="chapter-copy">
+            <p class="chapter-number">05 / SETTINGS & DATA</p>
+            <h3>Understand your privacy choices</h3>
+            <p>
+              Settings bring provider, storage, privacy, and application
+              controls together. Resume files and career data stay local by
+              default; when you request cloud AI processing, relevant content
+              is sent directly to the provider you selected.
+            </p>
+            <p>
+              Configure Ollama separately if you prefer local model
+              inference. Provider availability and data practices are set by
+              those services.
+            </p>
+          </div>
+          <figure class="shot">
+            <img
+              src="screenshots/06-privacy-settings.png"
+              alt="ATSCheck settings with the Privacy section selected."
+              loading="lazy"
+            >
+            <figcaption>
+              Privacy is one of the settings sections alongside provider and
+              storage controls.
+            </figcaption>
+          </figure>
+        </article>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <div>
+          <p class="eyebrow">Ready to try it?</p>
+          <h2 id="closing-title">Set up your own workspace.</h2>
+          <p>
+            Download the desktop app or follow the install guide to get started.
+          </p>
+        </div>
+        <a
+          class="button button-secondary"
+          href="https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/latest"
+        >View the latest release</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>ATSCheck Desktop · Open source · MIT License</span>
+      <nav aria-label="Project links">
+        <a href="../../README.md">README</a>
+        <a href="../SETUP.md">Install guide</a>
+        <a href="../USER_GUIDE.md">User guide</a>
+        <a href="https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1">GitHub</a>
+      </nav>
+    </footer>
+  </body>
+</html>

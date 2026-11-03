@@ -32,3 +32,6 @@ maintainer checklist for building, testing, and publishing future releases.
 
 Open the standalone [HTML overview](index.html) in a browser for a visual
 introduction to the project and direct links to the downloads and guides.
+
+Explore the screenshot-led [ATSCheck Desktop product tour](demo/index.html)
+for a walkthrough of the main app workflows using fictional sample data.

@@ -63,6 +63,21 @@ first-launch setup, known limitations, and troubleshooting.
 AI-generated and parsed content is a draft: check names, dates, skills, claims,
 and formatting against your source material before using or sending it.
 
+## See the app in action
+
+Explore the [visual product tour](docs/demo/index.html) for a screenshot-led
+walkthrough of the resume library, builder, cover-letter workflow, job tracker,
+and privacy settings. The tour uses fictional sample data and calls out which
+features are disabled or require provider setup.
+
+<a href="docs/demo/index.html">
+  <img src="docs/demo/screenshots/01-dashboard.png" alt="ATSCheck Desktop dashboard with resume upload and the ATS-analysis-disabled notice" width="720">
+</a>
+
+<a href="docs/demo/index.html">
+  <img src="docs/demo/screenshots/03-resume-preview.png" alt="Resume preview generated from fictional sample data" width="720">
+</a>
+
 ## Quick start
 
 1. Download and install the matching [v0.1.3 release](https://github.com/ViswaManikandan06/ATSCheck-Desktop-V1/releases/tag/v0.1.3).
